@@ -1,29 +1,33 @@
 create table cars (
-	id BIGSERIAL NOT NULL PRIMARY KEY,
+	car_uid UUID NOT NULL PRIMARY KEY,
 	make VARCHAR(50) NOT NULL,
 	model VARCHAR(50) NOT NULL,
 	year VARCHAR(50) NOT NULL,
 	price NUMERIC(19, 2) NOT NULL
 );
 
-insert into cars (id, make, model, year, price) values (1, 'Audi', 'V8', 1991, '448791.60');
-insert into cars (id, make, model, year, price) values (2, 'Volvo', '960', 1992, '524135.89');
-insert into cars (id, make, model, year, price) values (3, 'Mitsubishi', 'Diamante', 1996, '555070.47');
-insert into cars (id, make, model, year, price) values (4, 'Mitsubishi', 'Galant', 1985, '433218.53');
-insert into cars (id, make, model, year, price) values (5, 'Hyundai', 'Elantra', 1998, '635466.62');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Audi', 'V8', 1991, '448791.60');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Volvo', '960', 1992, '524135.89');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Mitsubishi', 'Diamante', 1996, '555070.47');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Mitsubishi', 'Galant', 1985, '433218.53');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Hyundai', 'Elantra', 1998, '635466.62');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Hyundai', 'Santa Fe', 2010, '204791.12');
+insert into cars (car_uid, make, model, year, price) values (uuid_generate_v4(), 'Subaru', 'Tribeca', 2007, '242698.01');
 
 create table people (
-	id BIGSERIAL NOT NULL PRIMARY KEY,
+	people_uid UUID NOT NULL PRIMARY KEY,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
 	gender VARCHAR(50) NOT NULL,
 	email VARCHAR(50),
-	car_id BIGINT REFERENCES cars (id),
-    UNIQUE (car_id)
+	car_uid UUID REFERENCES cars (car_uid),
+    UNIQUE (car_uid)
 );
 
-insert into people (id, first_name, last_name, gender, email, car_id) values (1, 'Ado', 'Tale', 'Male', 'atale0@squidoo.com', 4);
-insert into people (id, first_name, last_name, gender, email, car_id) values (2, 'Anthony', 'Greener', 'Non-binary', 'agreener1@lulu.com', 5);
-insert into people (id, first_name, last_name, gender, email, car_id) values (3, 'Gar', 'Larman', 'Male', 'glarman2@google.com.br', 1);
-insert into people (id, first_name, last_name, gender, email, car_id) values (4, 'Heath', 'Murcott', 'Genderqueer', 'hmurcott3@trellian.com', 3);
-insert into people (id, first_name, last_name, gender, email, car_id) values (5, 'Molli', 'Dunks', 'Female', null, 2);
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Ado', 'Tale', 'Male', 'atale0@squidoo.com');
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Anthony', 'Greener', 'Non-binary', 'agreener1@lulu.com');
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Gar', 'Larman', 'Male', 'glarman2@google.com.br');
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Heath', 'Murcott', 'Genderqueer', 'hmurcott3@trellian.com');
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Molli', 'Dunks', 'Female', null);
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Bernhard', 'Wollard', 'Male', null);
+insert into people (people_uid, first_name, last_name, gender, email) values (uuid_generate_v4(), 'Ki', 'Suermeier', 'Female', 'ksuermeiera@ftc.gov');
