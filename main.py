@@ -1,8 +1,12 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column,String,DateTime,Integer
+from sqlalchemy import Column,String,DateTime,Integer, create_engine
 from datetime import datetime
-Base = declarative_base()
+import os
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+connection_str = "sqlite:///" + os.path.join(BASE_DIR,'site.db')
 
+Base = declarative_base()
+engine = create_engine(connection_str, echo=True)
 
 """
 class User
