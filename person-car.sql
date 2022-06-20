@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 create table cars (
 	car_uid UUID NOT NULL PRIMARY KEY,
 	make VARCHAR(50) NOT NULL,
