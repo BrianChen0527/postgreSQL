@@ -1,5 +1,5 @@
 create table Customer (
-	CustomerID VARCHAR(50) NOT NULL PRIMARY KEY,
+	CustomerID VARCHAR(50) NOT NULL,
 	Name VARCHAR(50) NOT NULL,
 	phone VARCHAR(50) NOT NULL,
 	address VARCHAR(50) NOT NULL

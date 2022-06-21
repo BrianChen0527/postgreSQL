@@ -7,7 +7,7 @@ SELECT MIN(a.sum) FROM (SELECT employeeID, SUM(price) FROM Sale JOIN Item ON Sal
 );
 
 -- find top-spending customer
-SELECT customerID, SUM(price) FROM Sale JOIN Item ON Sale.SaleID=Item.SaleID GROUP BY customerID;
+SELECT customerID, SUM(price*amount) FROM Sale JOIN Item ON Sale.SaleID=Item.SaleID GROUP BY customerID;
 
 
 -- JOIN Employee table with Sales table
